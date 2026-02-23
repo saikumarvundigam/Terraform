@@ -40,8 +40,10 @@ resource "aws_security_group" "allow_tls" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  tags = {
-    Name = "allow_tls"
-  }
+  tags = merge(
+    var.comman_tags,
+    var.ec2_tags,
+    var.sg_tags
+  )
 }
 
