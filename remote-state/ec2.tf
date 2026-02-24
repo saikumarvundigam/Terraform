@@ -4,9 +4,8 @@ resource "aws_instance" "Terraform_Instance" {
   subnet_id     = "subnet-092ecd6324448c696"
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
 #   vpc_security_group_ids = aws_security_group.existing_sg.id
-
   tags = {
-    Name = "Terraform_Instance"
+    Name = "Terraform_Instance_Remote_state"
     Project = "Roboshop"
   }
 }
@@ -21,7 +20,7 @@ data "aws_vpc" "existing" {
 
 
 resource "aws_security_group" "allow_tls" {
-  name        = "allow_all_terraform" 
+  name        = "allow_all_terraform_Remote_state" 
   description = "Allow TLS inbound traffic and all outbound traffic"
   vpc_id      = "vpc-0dec96dacd0d1cb26"
 

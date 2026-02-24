@@ -4,7 +4,6 @@ resource "aws_instance" "Terraform_Instance" {
   subnet_id     = "subnet-092ecd6324448c696"
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
 #   vpc_security_group_ids = aws_security_group.existing_sg.id
-
   tags = {
     Name = "Terraform_Instance"
     Project = "Roboshop"
